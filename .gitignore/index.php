@@ -1,20 +1,20 @@
 <?php 
 $message = file_get_contents("php://input");
 $result = json_decode($message,true);
-$token = "537600355:AAHXCkeihgkm_a5oXxJUpK1F8m7I9tCiYNk";
-$chat_id = $result['message']['chat']['id'];
+$token = "557647184:AAHJ6VVhs-GUHN0TgJ08TywzW71CJU_4xmw";
+$chat_id = "151549088";
 
 if($result["message"]["text"] == '/start'){
 	$array1=array('chat_id'=>$chat_id);
 	$array2=array('photo'=>'/storage/ssd2/272/4886272/public_html/canais-digitais.jpg'); //path
 	$ch = curl_init();       
-	curl_setopt($ch, CURLOPT_URL,"https://api.telegram.org/bot537600355:AAHXCkeihgkm_a5oXxJUpK1F8m7I9tCiYNk/sendPhoto");
+	curl_setopt($ch, CURLOPT_URL,"https://api.telegram.org/bot557647184:AAHJ6VVhs-GUHN0TgJ08TywzW71CJU_4xmw/sendPhoto");
 	curl_custom_postfields($ch,$array1,$array2);//above custom function
 	$output=curl_exec($ch);
 	close($ch);
 }
 else{
-	$sendto ="https://api.telegram.org/bot537600355:AAHXCkeihgkm_a5oXxJUpK1F8m7I9tCiYNk/sendmessage?chat_id=".$chat_id."&text=Para enviar a imagem digite /start";
+	$sendto ="https://api.telegram.org/bot557647184:AAHJ6VVhs-GUHN0TgJ08TywzW71CJU_4xmw/sendmessage?chat_id=".$chat_id."&text=Para enviar a imagem digite /start";
 	file_get_contents($sendto);
 }
 
